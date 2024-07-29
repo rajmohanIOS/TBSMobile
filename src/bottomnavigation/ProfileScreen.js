@@ -6,11 +6,13 @@ import ProfileDetailComponent from "../component/ProfileDetailComponent";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HelpModel from '../models/HelpModel';
+import RateAppModel from '../models/RateAppModel';
 
 
 const ProfileScreen = ({ navigation }) => {
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [rateModel, setRateModel] = useState(false);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -43,7 +45,7 @@ const ProfileScreen = ({ navigation }) => {
                             <ProfileComponent title={'Offers'} image={require('../assets/offers.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'Referrals'} image={require('../assets/referral.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'Know about us'} image={require('../assets/aboutus.png')} onPress={() => navigation.navigate('AboutUs')} divider={true} />
-                            <ProfileComponent title={'Rate app'} image={require('../assets/rateapp.png')} onPress={console.log('clicked')} divider={true} />
+                            <ProfileComponent title={'Rate app'} image={require('../assets/rateapp.png')} onPress={() => setRateModel(true)} divider={true} />
                             <ProfileComponent title={'Help'} image={require('../assets/help.png')} onPress={() => setModalVisible(true)} divider={true} />
                             <ProfileComponent title={'Account Settings'} image={require('../assets/settings.png')} onPress={() => navigation.navigate('AccountSettings')} divider={true} />
                         </View>
@@ -64,6 +66,11 @@ const ProfileScreen = ({ navigation }) => {
                         setModalVisible(false)
 
                     }}
+                />
+
+                <RateAppModel
+                    visible={rateModel}
+                    closeModel={() => setRateModel(false)}
                 />
             </ImageBackground>
         </SafeAreaView>
