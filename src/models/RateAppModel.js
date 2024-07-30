@@ -6,44 +6,99 @@ import { TextInput } from 'react-native-gesture-handler';
 
 const RateAppModel = ({ visible, onPress, closeModel }) => {
 
+    const [review, setReview] = useState(null)
+    const [rating, setRating] = useState(0)
+
     const ratingCompleted = (rating) => {
         console.log('Rating is: ' + rating);
     };
+
+    const Rating = (value) => {
+
+        if (value === 1) {
+            return '#FF2B2B'
+        }
+        if (value === 2) {
+            return '#FF4A22'
+        }
+        if (value === 3) {
+            return '#F3880A'
+        }
+        if (value === 4) {
+            return '#FFA800'
+        }
+        if (value === 5) {
+            return '#FFDD2B'
+        }
+
+
+        return (
+            '#FF2B2B'
+        )
+    }
 
 
     return (
         <Modal animationType='slide' transparent={true} visible={visible}  >
             <View style={styles.centeredView}>
-                {/* <ImageBackground source={require('../assets/RateAppModel.png')} > */}
+
                 <View style={styles.modalView}>
-                    <Text style={styles.modalText}>Enjoying the Tbs App?</Text>
+                    {rating < 1 ?
+                        <ImageBackground source={require('../assets/Rate.gif')} style={{ overflow: 'hidden' }}>
+                            <View style={{ height: 292, padding: 20 }}>
+                                <Text style={styles.modalText}>Enjoying the Tbs App?</Text>
+                            </View>
+                        </ImageBackground>
+                        : <View style={{ padding: 20 }}>
+                            <Text style={styles.modalText}>Enjoying the Tbs App?</Text>
+                        </View>
+                    }
+
                     <View style={styles.subView}>
                         <Text style={styles.subTitleText}>Rate your experience with the Tbs App</Text>
                     </View>
 
-                    <View style={{ justifyContent: 'center', alignItems: 'center', paddingBottom: 10 }}  >
-                        <Rating
-                            showRating
-                            type="star"
-                            fractions={1}
-                            startingValue={0}
-                            readonly
-                            imageSize={40}
-                            onFinishRating={ratingCompleted}
-                        />
+
+                    <View style={{ justifyContent: 'space-evenly', flexDirection: 'row' }}>
+
+                        <TouchableOpacity onPress={() => setRating(1)}>
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 1 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FF2B2B' }]} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => setRating(2)}>
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 2 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FF4A22' }]} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => setRating(3)}>
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 3 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#F3880A' }]} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => setRating(4)}>
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 4 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FFA800' }]} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => setRating(5)}>
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 5 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FFDD2B' }]} />
+                        </TouchableOpacity>
+
                     </View>
 
-                    <View style={styles.feebackView}>
-                        <TextInput multiline style={{ minHeight: 130 }} placeholder='Write your feedback :)' />
-
+                    <View>
+                        <Text style={[rating === 1 ? { color: '#FF2B2B', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 2 ? { color: '#FF4A22', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 3 ? { color: '#F3880A', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 4 ? { color: '#FFA800', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 5 ? { color: '#FFDD2B', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : { fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' }]}>{rating === 1 ? 'Terrible' : rating === 2 ? 'Bad' : rating === 3 ? 'Okay' : rating === 4 ? 'Good' : rating === 5 ? 'Excellent' : ''}</Text>
                     </View>
+
+                    {rating >=1 &&
+                        <View style={styles.feebackView}>
+                            <TextInput multiline style={{ minHeight: 130 }} placeholder='Write your feedback :)' />
+                        </View>
+                    }
 
                     <TouchableOpacity onPress={closeModel} style={styles.submitView} >
                         <Text style={styles.submitText}>Submit</Text>
                     </TouchableOpacity>
 
                 </View>
-                {/* </ImageBackground> */}
+
             </View>
         </Modal>
     );
@@ -59,7 +114,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
-        padding: 30,
+        // padding: 30,
+        overflow: 'hidden',
         display: 'flex',
         gap: 10,
         shadowColor: '#000',
@@ -106,7 +162,8 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         padding: 15,
         marginLeft: 20,
-        marginRight: 20
+        marginRight: 20,
+        marginBottom: 30
     },
     submitText: {
         fontSize: 16,
