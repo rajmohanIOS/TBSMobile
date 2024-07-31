@@ -31,7 +31,6 @@ const RateAppModel = ({ visible, onPress, closeModel }) => {
             return '#FFDD2B'
         }
 
-
         return (
             '#FF2B2B'
         )
@@ -62,34 +61,40 @@ const RateAppModel = ({ visible, onPress, closeModel }) => {
                     <View style={{ justifyContent: 'space-evenly', flexDirection: 'row' }}>
 
                         <TouchableOpacity onPress={() => setRating(1)}>
-                            <Image source={require('../assets/Rate.png')} style={[rating >= 1 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FF2B2B' }]} />
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 1 && { tintColor: Rating(rating), }, { borderColor: '#FF2B2B' }]} />
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={() => setRating(2)}>
-                            <Image source={require('../assets/Rate.png')} style={[rating >= 2 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FF4A22' }]} />
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 2 && { tintColor: Rating(rating), }, { borderColor: '#FF4A22' }]} />
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={() => setRating(3)}>
-                            <Image source={require('../assets/Rate.png')} style={[rating >= 3 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#F3880A' }]} />
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 3 && { tintColor: Rating(rating), }, { borderColor: '#F3880A' }]} />
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={() => setRating(4)}>
-                            <Image source={require('../assets/Rate.png')} style={[rating >= 4 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FFA800' }]} />
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 4 && { tintColor: Rating(rating), }, { borderColor: '#FFA800' }]} />
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={() => setRating(5)}>
-                            <Image source={require('../assets/Rate.png')} style={[rating >= 5 && { borderRadius: 90, tintColor: Rating(rating), borderColor: '#FFDD2B' }]} />
+                            <Image source={require('../assets/Rate.png')} style={[rating >= 5 && { tintColor: Rating(rating), }, { borderColor: '#FFDD2B' }]} />
                         </TouchableOpacity>
 
                     </View>
 
-                    <View>
-                        <Text style={[rating === 1 ? { color: '#FF2B2B', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 2 ? { color: '#FF4A22', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 3 ? { color: '#F3880A', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 4 ? { color: '#FFA800', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 5 ? { color: '#FFDD2B', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : { fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' }]}>{rating === 1 ? 'Terrible' : rating === 2 ? 'Bad' : rating === 3 ? 'Okay' : rating === 4 ? 'Good' : rating === 5 ? 'Excellent' : ''}</Text>
-                    </View>
 
-                    {rating >=1 &&
-                        <View style={styles.feebackView}>
-                            <TextInput multiline style={{ minHeight: 130 }} placeholder='Write your feedback :)' />
+
+                    {rating >= 1 &&
+                        <View style={{ gap: 10 }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 10 }}>
+                                <Image source={require('../assets/Rate.png')} style={{ height: 20, width: 20, tintColor: Rating(rating) }} />
+                                <Text style={{ color: Rating(rating), fontSize: 16, fontWeight: '500', lineHeight: 21 }}>{rating} -</Text>
+                                <Text style={[rating === 1 ? { color: '#FF2B2B', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 2 ? { color: '#FF4A22', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 3 ? { color: '#F3880A', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 4 ? { color: '#FFA800', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : rating === 5 ? { color: '#FFDD2B', fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' } : { fontWeight: '500', fontSize: 14, lineHeight: 21, textAlign: 'center' }]}>{rating === 1 ? 'Terrible' : rating === 2 ? 'Bad' : rating === 3 ? 'Okay' : rating === 4 ? 'Good' : rating === 5 ? 'Excellent' : ''}</Text>
+                            </View>
+
+                            <View style={styles.feebackView}>
+                                <TextInput multiline style={{ minHeight: 130 }} placeholder='Write your feedback :)' />
+                            </View>
                         </View>
                     }
 

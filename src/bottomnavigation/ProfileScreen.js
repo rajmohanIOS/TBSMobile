@@ -7,16 +7,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HelpModel from '../models/HelpModel';
 import RateAppModel from '../models/RateAppModel';
+import LanguageModel from '../models/LanguageModel';
 
 
 const ProfileScreen = ({ navigation }) => {
 
     const [modalVisible, setModalVisible] = useState(false);
     const [rateModel, setRateModel] = useState(false);
+    const [langModel, setLangModel] = useState(false);
 
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={require('../assets/appBackgroundImage.png')} style={{ height: '100%', width: '100%' }} >
+
                 <ScrollView >
 
                     {/* <LoginProfileComponent /> */}
@@ -54,17 +57,17 @@ const ProfileScreen = ({ navigation }) => {
                             <Text style={styles.SubTitleText}>Preferences</Text>
                             <ProfileComponent title={'Country'} value={'India'} image={require('../assets/india.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'Currency'} value={'INR'} image={require('../assets/currency.png')} onPress={console.log('clicked')} divider={true} />
-                            <ProfileComponent title={'Language'} value={'English'} image={require('../assets/lang.png')} onPress={console.log('clicked')} divider={true} />
+                            <ProfileComponent title={'Language'} value={'English'} image={require('../assets/lang.png')} onPress={() => setLangModel(true)} divider={true} />
                             <ProfileComponent title={'Booking for women'} value={'No'} image={require('../assets/women.png')} onPress={console.log('clicked')} divider={true} />
                         </View>
                     </View>
+
                 </ScrollView>
 
                 <HelpModel
                     visible={modalVisible}
                     closeModel={() => {
                         setModalVisible(false)
-
                     }}
                 />
 
@@ -72,6 +75,14 @@ const ProfileScreen = ({ navigation }) => {
                     visible={rateModel}
                     closeModel={() => setRateModel(false)}
                 />
+
+                <LanguageModel
+                    visible={langModel}
+                    closeModel={() => {
+                        setLangModel(false)
+                    }}
+                />
+
             </ImageBackground>
         </SafeAreaView>
     )

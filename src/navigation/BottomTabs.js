@@ -18,7 +18,7 @@ const BottomTabs = () => {
         tabBarItemStyle: { borderRadius: 25 },
         tabBarActiveBackgroundColor: 'rgba(255, 255, 255, 0.2)',
         tabBarInactiveBackgroundColor: '#1F487C',
-        tabBarStyle: { backgroundColor: '#1F487C', height: 80 }
+        tabBarStyle: { backgroundColor: '#1F487C',  }
       })}
     >
 

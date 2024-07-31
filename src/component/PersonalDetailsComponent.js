@@ -174,7 +174,6 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#1F487C',
         padding: 10,
-
     },
     checkBoxText: {
         fontSize: 14,

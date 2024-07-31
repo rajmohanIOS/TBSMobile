@@ -1,23 +1,56 @@
+
 import React from "react";
-import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
-import ProfileComponent from "../../component/ProfileComponent";
+import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Image, ImageBackground, FlatList } from "react-native";
 
 
 const Passengers = () => {
+
+    const data = [
+        { id: '1', title: 'Raju', iconThemeColor: 'green' },
+        { id: '2', title: 'Mohan', iconThemeColor: 'red' },
+        { id: '3', title: 'Kalanithi', iconThemeColor: 'blue' },
+        { id: '4', title: 'Dhivagar', iconThemeColor: 'orange' }
+    ]
+
+    const renderItem = ({ item }) => {
+
+        return (
+            <View style={{ display: 'flex', gap: 10, }}>
+                <View style={styles.dividerView} />
+                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, }}>
+                    <View style={{ flexDirection: 'row', display: 'flex', gap: 10, alignItems: 'center' }}>
+                        <View style={{ backgroundColor: item.iconThemeColor, padding: 15, borderRadius: 30 }}>
+                            <Image source={require('../../assets/avatar.png')} />
+                        </View>
+                        <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>{item.title}</Text>
+                    </View>
+                    <Image source={require('../../assets/Arrow.png')} />
+                </TouchableOpacity>
+                <View style={styles.dividerView} />
+            </View>
+        )
+    }
 
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={require('../../assets/appBackgroundImage.png')} style={{ height: '100%', width: '100%' }} >
                 <View style={styles.view}>
-                    <View style={styles.detailView}>
-                        <ProfileComponent title={'Mithun Kumar'} value={'Male, 24 years'} titleStyle={styles.titleStyle} valueStyle={styles.valueStyle} divider={true} />
-                        <ProfileComponent title={'Mithun '} value={'Male, 27 years'} titleStyle={styles.titleStyle} valueStyle={styles.valueStyle} divider={true} />
+                    <View>
+                        {/* <View style={styles.dividerView} /> */}
+                        <FlatList
+                            data={data}
+                            renderItem={renderItem}
+                            scrollEnabled={false}
+                        />
+                        {/* <View style={styles.dividerView} /> */}
                     </View>
 
-                    <TouchableOpacity style={styles.submitView} >
-                        <Image />
-                        <Text style={styles.submitText}>Add new passenger</Text>
-                    </TouchableOpacity>
+                    <View style={{ padding: 20 }}>
+                        <TouchableOpacity style={styles.submitView} >
+                            <Image />
+                            <Text style={styles.submitText}>Add new passenger</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </ImageBackground>
         </SafeAreaView>
@@ -25,35 +58,25 @@ const Passengers = () => {
 }
 
 const styles = StyleSheet.create({
+    dividerView: {
+        borderBottomColor: '#1F487C',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        // marginLeft: 5,
+        // marginRight: 5,
+        // marginTop: 10
+    },
     container: {
         flex: 1,
         backgroundColor: '#E5FFF1',
         justifyContent: 'space-between',
     },
-    scrollView: {
-
-    },
     view: {
         flex: 1,
-        padding: 20,
+        marginTop: 30,
         justifyContent: 'space-between',
     },
     detailView: {
-        display: 'flex',
-        gap: 20,
-        padding: 10
-    },
-    titleStyle: {
-        fontSize: 16,
-        fontWeight: '600',
-        lineHeight: 20,
-        color: '#1F487C'
-    },
-    valueStyle: {
-        fontSize: 16,
-        fontWeight: '400',
-        lineHeight: 20,
-        color: '#1F487C'
+
     },
     submitView: {
         backgroundColor: '#1F487C',
@@ -67,7 +90,7 @@ const styles = StyleSheet.create({
         lineHeight: 19,
         color: '#FFFFFF',
         textAlign: 'center'
-    }
+    },
 
 })
 export default Passengers
