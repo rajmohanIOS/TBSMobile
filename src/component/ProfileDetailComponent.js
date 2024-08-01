@@ -40,13 +40,26 @@ const ProfileDetailComponent = ({ name, mobile, since }) => {
     const backgroundImage = getBackgroundImage(timeOfDay);
 
     return (
-        <ImageBackground source={backgroundImage} resizeMode='cover' style={styles.backgroundImage}>
-            <View style={styles.overlay}>
-                <Text style={styles.text}>{name}</Text>
-                <Text style={styles.text1}>{mobile}</Text>
-                <Text style={styles.text1}>{since}</Text>
+        <View>
+            <ImageBackground source={backgroundImage} resizeMode='cover' style={styles.backgroundImage}>
+                <View style={styles.overlay}>
+                    <Text style={styles.text}>{name}</Text>
+                    <Text style={styles.text1}>{mobile}</Text>
+                    <Text style={styles.text1}>{since}</Text>
+                </View>
+            </ImageBackground>
+            <View style={{ backgroundColor: '#fff', padding: 20, flexDirection: 'row', justifyContent: 'space-around' }}>
+                <View style={styles.whitView}>
+                    <Text style={styles.text3}>3</Text>
+                    <Text style={styles.text4}>Total Trips</Text>
+                </View>
+
+                <View style={styles.whitView}>
+                    <Text style={styles.text3}>767 kms</Text>
+                    <Text style={styles.text4}>Travelled</Text>
+                </View>
             </View>
-        </ImageBackground>
+        </View>
     );
 };
 
@@ -73,6 +86,27 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         lineHeight: 16
     },
+    whitView: {
+        // backgroundColor: '#000',
+        // flexDirection: 'row',
+        display: 'flex',
+        // justifyContent: 'space-evenly'
+    },
+    text3: {
+        color: '#1F487C',
+        fontSize: 16,
+        fontWeight: '600',
+        lineHeight: 20,
+        textAlign: 'center'
+    },
+    text4: {
+        color: '#1F487C',
+        fontSize: 16,
+        fontWeight: '400',
+        lineHeight: 20,
+        textAlign: 'center'
+    }
+
 });
 
 export default ProfileDetailComponent;
