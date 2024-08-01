@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity, ImageBackground, Image, FlatList } from 'react-native';
 
 
-const LanguageModel = ({ visible, onPress, closeModel }) => {
+const WomenModel = ({ visible, onPress, closeModel }) => {
 
     const [selected, setSelected] = useState(null)
 
@@ -12,47 +12,30 @@ const LanguageModel = ({ visible, onPress, closeModel }) => {
 
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
-                    <Text style={styles.modalText}>Language</Text>
-
-                    {/* <View style={{}}>
-                        <FlatList
-                            data={data}
-                            renderItem={renderItem}
-                            scrollEnabled={false}
-                        />
-                    </View> */}
+                    <Text style={styles.modalText}>Booking for women</Text>
+                    <Text style={styles.subTitleText}>Providing helpful details to smartly choose bus travel for women</Text>
 
                     <View style={{ display: 'flex', gap: 10, padding: 10 }}>
 
                         <TouchableOpacity onPress={() => setSelected(1)} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                            <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>English</Text>
+                            <Text style={styles.subTitleText}>Yes</Text>
                             <Image source={require('../assets/uncheck.png')} style={[selected === 1 && { backgroundColor: '#1F487C', borderRadius: 20 }]} />
                         </TouchableOpacity>
                         <View style={styles.dividerView} />
 
                         <TouchableOpacity onPress={() => setSelected(2)} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                            <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>தமிழ் (Tamil)</Text>
+                            <Text style={styles.subTitleText}>No</Text>
                             <Image source={require('../assets/uncheck.png')} style={selected === 2 && { backgroundColor: '#1F487C', borderRadius: 20 }} />
-                        </TouchableOpacity>
-                        <View style={styles.dividerView} />
-
-                        <TouchableOpacity onPress={() => setSelected(3)} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                            <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>മലയാളം (Malayalam)</Text>
-                            <Image source={require('../assets/uncheck.png')} style={selected === 3 && { backgroundColor: '#1F487C', borderRadius: 20 }} />
-                        </TouchableOpacity>
-                        <View style={styles.dividerView} />
-
-                        <TouchableOpacity onPress={() => setSelected(4)} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                            <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>हिन्दी (Hindi)</Text>
-                            <Image source={require('../assets/uncheck.png')} style={selected === 4 && { backgroundColor: '#1F487C', borderRadius: 20 }} />
                         </TouchableOpacity>
                         <View style={styles.dividerView} />
 
                     </View>
 
-                    <TouchableOpacity onPress={closeModel} style={styles.submitView} >
-                        <Text style={styles.submitText}>Submit</Text>
-                    </TouchableOpacity>
+                    <View style={{padding: 30}}>
+                        <TouchableOpacity onPress={closeModel} style={styles.submitView} >
+                            <Text style={styles.submitText}>Confirm</Text>
+                        </TouchableOpacity>
+                    </View>
 
                 </View>
             </View>
@@ -66,8 +49,8 @@ const styles = StyleSheet.create({
     dividerView: {
         borderBottomColor: '#1F487C',
         borderBottomWidth: StyleSheet.hairlineWidth,
-        marginLeft: 5,
-        marginRight: 5,
+        // marginLeft: 5,
+        // marginRight: 5,
         marginTop: 10
     },
     centeredView: {
@@ -101,7 +84,6 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         fontSize: 14,
         lineHeight: 16,
-        textAlign: 'center',
     },
     submitView: {
         backgroundColor: '#1F487C',
@@ -120,4 +102,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LanguageModel;
+export default WomenModel;

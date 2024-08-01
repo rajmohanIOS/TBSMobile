@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HelpModel from '../models/HelpModel';
 import RateAppModel from '../models/RateAppModel';
 import LanguageModel from '../models/LanguageModel';
+import WomenModel from '../models/WomenModel';
 
 
 const ProfileScreen = ({ navigation }) => {
@@ -15,6 +16,7 @@ const ProfileScreen = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [rateModel, setRateModel] = useState(false);
     const [langModel, setLangModel] = useState(false);
+    const [womenModel, setWomenModel] = useState(false);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -58,30 +60,20 @@ const ProfileScreen = ({ navigation }) => {
                             <ProfileComponent title={'Country'} value={'India'} image={require('../assets/india.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'Currency'} value={'INR'} image={require('../assets/currency.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'Language'} value={'English'} image={require('../assets/lang.png')} onPress={() => setLangModel(true)} divider={true} />
-                            <ProfileComponent title={'Booking for women'} value={'No'} image={require('../assets/women.png')} onPress={console.log('clicked')} divider={true} />
+                            <ProfileComponent title={'Booking for women'} value={'No'} image={require('../assets/women.png')} onPress={() => setWomenModel(true)} divider={true} />
                         </View>
                     </View>
 
                 </ScrollView>
 
-                <HelpModel
-                    visible={modalVisible}
-                    closeModel={() => {
-                        setModalVisible(false)
-                    }}
-                />
+                <HelpModel visible={modalVisible} closeModel={() => { setModalVisible(false) }} />
 
-                <RateAppModel
-                    visible={rateModel}
-                    closeModel={() => setRateModel(false)}
-                />
+                <RateAppModel visible={rateModel} closeModel={() => setRateModel(false)} />
 
-                <LanguageModel
-                    visible={langModel}
-                    closeModel={() => {
-                        setLangModel(false)
-                    }}
-                />
+                <LanguageModel visible={langModel} closeModel={() => setLangModel(false)} />
+
+                <WomenModel visible={womenModel} closeModel={() => setWomenModel(false)} />
+
 
             </ImageBackground>
         </SafeAreaView>
