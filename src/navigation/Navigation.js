@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { navigationRef } from './NavigationService';
@@ -17,6 +17,15 @@ import AboutUs from '../profileScreens/more/AboutUs';
 const Stack = createStackNavigator();
 
 const Navigation = () => {
+ 
+    const HeaderBackground = () => ( 
+        <ImageBackground
+            source={require('../assets/headerbackground.png')}
+            resizeMode='contain'
+            style={styles.headerBackground}
+        />
+    );
+
     return (
         <NavigationContainer ref={navigationRef} >
             <Stack.Navigator
@@ -24,6 +33,7 @@ const Navigation = () => {
                     headerStyle: {
                         backgroundColor: '#1F487C',
                     },
+                    headerBackground: () => <HeaderBackground />,
                     headerBackImage: () => (
                         <Image
                             source={require('../assets/back.png')}
@@ -43,5 +53,13 @@ const Navigation = () => {
         </NavigationContainer>
     );
 }
+
+const styles = StyleSheet.create({
+    headerBackground: {
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#1F487C',
+    },
+});
 
 export default Navigation;

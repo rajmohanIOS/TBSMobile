@@ -47,7 +47,7 @@ const Passengers = () => {
 
                     <View style={{ padding: 20 }}>
                         <TouchableOpacity style={styles.submitView} >
-                            <Image />
+                            <Image source={require('../../assets/add.png')}/>
                             <Text style={styles.submitText}>Add new passenger</Text>
                         </TouchableOpacity>
                     </View>
@@ -61,9 +61,6 @@ const styles = StyleSheet.create({
     dividerView: {
         borderBottomColor: '#1F487C',
         borderBottomWidth: StyleSheet.hairlineWidth,
-        // marginLeft: 5,
-        // marginRight: 5,
-        // marginTop: 10
     },
     container: {
         flex: 1,
@@ -79,10 +76,13 @@ const styles = StyleSheet.create({
 
     },
     submitView: {
+        flexDirection: 'row',
         backgroundColor: '#1F487C',
         borderRadius: 25,
         padding: 15,
-        marginBottom: 20
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10
     },
     submitText: {
         fontSize: 16,

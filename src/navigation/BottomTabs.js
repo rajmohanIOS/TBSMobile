@@ -66,7 +66,7 @@ const BottomTabs = () => {
       }} />
 
       <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{
-        headerShown: true,
+        headerShown: false,
         headerTitle: ' ',
         headerStyle: { backgroundColor: '#1F487C', height: 60 },
         tabBarLabel: 'Profile',
