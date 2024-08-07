@@ -36,6 +36,29 @@ const RateAppModel = ({ visible, onPress, closeModel }) => {
         )
     }
 
+    const unRating = (value) => {
+
+        if (value === 1) {
+            return '#FF2B2B'
+        }
+        if (value === 2) {
+            return '#FF4A22'
+        }
+        if (value === 3) {
+            return '#F3880A'
+        }
+        if (value === 4) {
+            return '#FFA800'
+        }
+        if (value === 5) {
+            return '#FFDD2B'
+        }
+
+        return (
+            '#FF2B2B'
+        )
+    }
+
 
     return (
         <Modal animationType='slide' transparent={true} visible={visible}  >
@@ -131,7 +154,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-    },
+    },                                          
     modalText: {
         color: '#1F487C',
         fontWeight: '600',

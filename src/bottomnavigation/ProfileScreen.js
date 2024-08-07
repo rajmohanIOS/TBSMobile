@@ -40,7 +40,7 @@ const ProfileScreen = ({ navigation }) => {
 
                         <View style={styles.subtitleView}>
                             <Text style={styles.SubTitleText}>Payments</Text>
-                            <ProfileComponent title={'Tbs Wallet '} image={require('../assets/tbswallet.png')} onPress={console.log('clicked')} divider={true} />
+                            <ProfileComponent title={'Tbs Wallet'} image={require('../assets/tbswallet.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'Payment Methods'} image={require('../assets/paymentmethods.png')} onPress={console.log('clicked')} divider={true} />
                             <ProfileComponent title={'GST Details'} image={require('../assets/gstdetails.png')} onPress={console.log('clicked')} divider={true} />
                         </View>
@@ -48,7 +48,7 @@ const ProfileScreen = ({ navigation }) => {
                         <View style={styles.subtitleView}>
                             <Text style={styles.SubTitleText}>More</Text>
                             <ProfileComponent title={'Offers'} image={require('../assets/offers.png')} onPress={console.log('clicked')} divider={true} />
-                            <ProfileComponent title={'Referrals'} image={require('../assets/referral.png')} onPress={console.log('clicked')} divider={true} />
+                            <ProfileComponent title={'Referrals'} image={require('../assets/referral.png')} onPress={() => navigation.navigate('Refferals')} divider={true} />
                             <ProfileComponent title={'Know about us'} image={require('../assets/aboutus.png')} onPress={() => navigation.navigate('AboutUs')} divider={true} />
                             <ProfileComponent title={'Rate app'} image={require('../assets/rateapp.png')} onPress={() => setRateModel(true)} divider={true} />
                             <ProfileComponent title={'Help'} image={require('../assets/help.png')} onPress={() => setModalVisible(true)} divider={true} />
@@ -66,7 +66,7 @@ const ProfileScreen = ({ navigation }) => {
 
                 </ScrollView>
 
-                <HelpModel visible={modalVisible} closeModel={() => { setModalVisible(false) }} />
+                <HelpModel visible={modalVisible} closeModel={() => setModalVisible(false)} />
 
                 <RateAppModel visible={rateModel} closeModel={() => setRateModel(false)} />
 

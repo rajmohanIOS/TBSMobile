@@ -11,6 +11,8 @@ import Passengers from '../profileScreens/mydetails/Passengers';
 import AccountSettings from '../profileScreens/more/AccountSettings';
 import DeleteAcoount from '../profileScreens/more/DeleteAcoount';
 import AboutUs from '../profileScreens/more/AboutUs';
+import CMS from '../profileScreens/more/CMS';
+import Refferals from '../profileScreens/more/Refferals';
 
 
 
@@ -49,6 +51,9 @@ const Navigation = () => {
                 <Stack.Screen name="AccountSettings" component={AccountSettings} options={{ headerShown: true, headerTitle: 'Account Settings', headerBackTitle: ' ', headerTitleStyle: { color: '#fff', fontSize: 20, fontWeight: '700', lineHeight: 20 }, headerStyle: { backgroundColor: '#1F487C' } }} />
                 <Stack.Screen name="DeleteAcoount" component={DeleteAcoount} options={{ headerShown: true, headerTitle: 'Account Settings', headerBackTitle: ' ', headerTitleStyle: { color: '#fff', fontSize: 20, fontWeight: '700', lineHeight: 20 }, headerStyle: { backgroundColor: '#1F487C' } }} />
                 <Stack.Screen name="AboutUs" component={AboutUs} options={{ headerShown: true, headerTitle: 'Know About Us', headerBackTitle: ' ', headerTitleStyle: { color: '#fff', fontSize: 20, fontWeight: '700', lineHeight: 20 }, headerStyle: { backgroundColor: '#1F487C' } }} />
+                <Stack.Screen name="CMS" component={CMS} options={{ headerShown: true, headerTitle: 'Know About Us', headerBackTitle: ' ', headerTitleStyle: { color: '#fff', fontSize: 20, fontWeight: '700', lineHeight: 20 }, headerStyle: { backgroundColor: '#1F487C' } }} />
+                <Stack.Screen name="Refferals" component={Refferals} options={{ headerShown: true, headerTitle: 'Refferals', headerBackTitle: ' ', headerTitleStyle: { color: '#fff', fontSize: 20, fontWeight: '700', lineHeight: 20 }, headerStyle: { backgroundColor: '#1F487C' } }} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );

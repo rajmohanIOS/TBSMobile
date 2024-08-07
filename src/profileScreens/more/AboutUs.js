@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, View, Text, StyleSheet, ScrollView, ImageBackground, Image } from "react-native";
 import ProfileComponent from "../../component/ProfileComponent";
 
-const AboutUs = () => {
+const AboutUs = ({navigation}) => {
 
 
     return (
@@ -23,9 +23,9 @@ const AboutUs = () => {
                         </View>
 
                         <View style={styles.privacyView}>
-                            <ProfileComponent title={'Privacy Policy'} titleStyle={styles.titleText} image={require('../../assets/privacypolicy.png')} imageStyle={styles.imgStyle} divider={true} />
-                            <ProfileComponent title={'Terms & Conditions'} titleStyle={styles.titleText} image={require('../../assets/terms.png')} imageStyle={styles.imgStyle} divider={true} />
-                            <ProfileComponent title={'User Agreement'} titleStyle={styles.titleText} image={require('../../assets/terms.png')} imageStyle={styles.imgStyle} divider={true} />
+                            <ProfileComponent title={'Privacy Policy'} titleStyle={styles.titleText} image={require('../../assets/privacypolicy.png')} imageStyle={styles.imgStyle} divider={true} onPress={() => navigation.navigate('CMS', {data: 'privacy'})} />
+                            <ProfileComponent title={'Terms & Conditions'} titleStyle={styles.titleText} image={require('../../assets/terms.png')} imageStyle={styles.imgStyle} divider={true} onPress={() => navigation.navigate('CMS', {data: 'terms'})}/>
+                            <ProfileComponent title={'User Agreement'} titleStyle={styles.titleText} image={require('../../assets/terms.png')} imageStyle={styles.imgStyle} divider={true} onPress={() => navigation.navigate('CMS', {data: 'user'})}/>
                         </View>
                     </View>
 

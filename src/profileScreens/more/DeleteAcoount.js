@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     headerView: {
         padding: 20,
         display: 'flex',
-        gap: 20
+        gap: 10
     },
     danView: {
         flexDirection: 'row',
@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
         color: '#1F487C'
     },
     paraView: {
-        padding: 25,
+        marginTop: 10,
+        padding: 20,
         backgroundColor: '#D0E5FF4D',
         borderRadius: 15,
 
@@ -123,7 +124,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Inter'
     },
     feedbackView: {
-        padding: 25,
+        marginTop: 10,
+        padding: 20,
         backgroundColor: '#fff',
         borderRadius: 15,
     },

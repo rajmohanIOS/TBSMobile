@@ -6,10 +6,10 @@ import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Ima
 const Passengers = () => {
 
     const data = [
-        { id: '1', title: 'Raju', iconThemeColor: 'green' },
-        { id: '2', title: 'Mohan', iconThemeColor: 'red' },
-        { id: '3', title: 'Kalanithi', iconThemeColor: 'blue' },
-        { id: '4', title: 'Dhivagar', iconThemeColor: 'orange' }
+        { id: '1', title: 'Raju', iconThemeColor: 'green', Age: 'Male, 24 years' },
+        { id: '2', title: 'Mohan', iconThemeColor: 'red', Age: 'Male, 24 years' },
+        { id: '3', title: 'Kalanithi', iconThemeColor: 'blue', Age: 'Male, 24 years' },
+        { id: '4', title: 'Dhivagar', iconThemeColor: 'orange', Age: 'Male, 24 years' }
     ]
 
     const renderItem = ({ item }) => {
@@ -17,12 +17,15 @@ const Passengers = () => {
         return (
             <View style={{ display: 'flex', gap: 10, }}>
                 <View style={styles.dividerView} />
-                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, }}>
+                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingLeft: 15, paddingRight: 15 }}>
                     <View style={{ flexDirection: 'row', display: 'flex', gap: 10, alignItems: 'center' }}>
                         <View style={{ backgroundColor: item.iconThemeColor, padding: 15, borderRadius: 30 }}>
                             <Image source={require('../../assets/avatar.png')} />
                         </View>
-                        <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>{item.title}</Text>
+                        <View>
+                            <Text style={{ fontSize: 14, fontWeight: '600', color: '#1F487C' }}>{item.title}</Text>
+                            <Text style={{ fontSize: 14, fontWeight: '400', color: '#1F487C' }}>{item?.Age}</Text>
+                        </View>
                     </View>
                     <Image source={require('../../assets/Arrow.png')} />
                 </TouchableOpacity>
@@ -35,9 +38,10 @@ const Passengers = () => {
         <SafeAreaView style={styles.container}>
             <ImageBackground source={require('../../assets/appBackgroundImage.png')} style={{ height: '100%', width: '100%' }} >
                 <View style={styles.view}>
-                    <View>
+                    <View style={{ display: 'flex', gap: 10 }}>
                         {/* <View style={styles.dividerView} /> */}
                         <FlatList
+                            contentContainerStyle={{ display: 'flex', gap: 20 }}
                             data={data}
                             renderItem={renderItem}
                             scrollEnabled={false}
@@ -47,7 +51,7 @@ const Passengers = () => {
 
                     <View style={{ padding: 20 }}>
                         <TouchableOpacity style={styles.submitView} >
-                            <Image source={require('../../assets/add.png')}/>
+                            <Image source={require('../../assets/add.png')} />
                             <Text style={styles.submitText}>Add new passenger</Text>
                         </TouchableOpacity>
                     </View>
