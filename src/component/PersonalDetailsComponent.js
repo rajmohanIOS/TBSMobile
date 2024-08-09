@@ -41,7 +41,7 @@ const PersonalDetailsComponent = ({ image, title, onPress, titleStyle, valueStyl
             />
 
             <TouchableOpacity style={styles.phoneView} onPress={() => setOpen(true)}>
-                <Text style={styles.caleText}>{ datee ? formatDateTime(datee) : 'Date of birth *'}</Text>
+                <Text style={styles.caleText}>{datee ? formatDateTime(datee) : 'Date of birth *'}</Text>
                 <Image source={require('../assets/calender.png')} />
                 <DatePicker
                     confirmText={'Confirm'}
@@ -74,24 +74,8 @@ const PersonalDetailsComponent = ({ image, title, onPress, titleStyle, valueStyl
                         containerStyle={styles.checkBoxStyle}
                         checked={selectedIndex === 0}
                         onPress={() => setIndex(0)}
-                        checkedIcon={
-                            <Icon
-                                name="radio-button-checked"
-                                type="material"
-                                color="#1F487C"
-                                size={25}
-                                iconStyle={{ marginRight: 10 }}
-                            />
-                        }
-                        uncheckedIcon={
-                            <Icon
-                                name="radio-button-unchecked"
-                                type="material"
-                                color="grey"
-                                size={25}
-                                iconStyle={{ marginRight: 10 }}
-                            />
-                        }
+                        checkedIcon={<Image source={require('../assets/uncheck.png')} tintColor={'#1F487C'} style={{backgroundColor: '#1F487C', borderRadius: 30}}/>}
+                        uncheckedIcon={<Image source={require('../assets/uncheck.png')} />}
                     />
 
                     <CheckBox
@@ -101,24 +85,8 @@ const PersonalDetailsComponent = ({ image, title, onPress, titleStyle, valueStyl
                         containerStyle={styles.checkBoxStyle}
                         checked={selectedIndex === 1}
                         onPress={() => setIndex(1)}
-                        checkedIcon={
-                            <Icon
-                                name="radio-button-checked"
-                                type="material"
-                                color="#1F487C"
-                                size={25}
-                                iconStyle={{ marginRight: 10 }}
-                            />
-                        }
-                        uncheckedIcon={
-                            <Icon
-                                name="radio-button-unchecked"
-                                type="material"
-                                color="grey"
-                                size={25}
-                                iconStyle={{ marginRight: 10 }}
-                            />
-                        }
+                        checkedIcon={<Image source={require('../assets/uncheck.png')} tintColor={'#1F487C'} style={{backgroundColor: '#1F487C', borderRadius: 30}}/>}
+                        uncheckedIcon={<Image source={require('../assets/uncheck.png')} />}
                     />
                 </View>
             </View>
@@ -133,7 +101,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
-        padding: 15,
+        padding: 10,
         gap: 20,
     },
     titleText: {
@@ -166,7 +134,7 @@ const styles = StyleSheet.create({
     },
     checkBoxView: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         // width: '100%'
     },
     checkBoxStyle: {
@@ -174,6 +142,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#1F487C',
         padding: 10,
+        justifyContent: 'center'
     },
     checkBoxText: {
         fontSize: 14,

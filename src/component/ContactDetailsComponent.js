@@ -92,7 +92,7 @@ const ContactDetailsComponent = ({ image, title, onPress, titleStyle, valueStyle
                     {renderFlagButton()}
                     {isCountryPickerVisible && (
                         <CountryPicker
-                        containerButtonStyle={{justifyContent: 'center', backgroundColor: '#000'}}
+                        // containerButtonStyle={{justifyContent: 'center', backgroundColor: '#000'}}
                             visible={isCountryPickerVisible}
                             onClose={() => setCountryPickerVisible(false)} // Close the picker on cancel
                             onSelect={onCountrySelect}
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
-        padding: 15,
+        padding: 10,
         gap: 20,
     },
     titleText: {
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 5,
         flexDirection: 'row',
-        padding: 20,
+        padding: 15,
         backgroundColor: '#fff',
         borderColor: '#1F487C',
         alignItems: 'center',
@@ -224,28 +224,6 @@ const styles = StyleSheet.create({
     },
 
 })
-
-const pickerSelectStyles = StyleSheet.create({
-
-    inputIOS: {
-        height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        borderRadius: 5,
-        padding: 10,
-        marginBottom: 20,
-        flex: 1,
-    },
-    inputAndroid: {
-        height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        borderRadius: 5,
-        padding: 10,
-        marginBottom: 20,
-        flex: 1,
-    },
-});
 
 
 export default ContactDetailsComponent

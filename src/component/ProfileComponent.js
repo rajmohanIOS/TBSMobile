@@ -14,7 +14,7 @@ const ProfileComponent = ({ image, title, onPress, value, titleStyle, valueStyle
                     <View>
                         <Text style={[titleStyle ? titleStyle : styles.titleText,]}>{title}</Text>
 
-                        {value && <Text style={[valueStyle ? valueStyle : styles.valueText]}>{value}</Text>}
+                        { value && <Text style={[valueStyle ? valueStyle : styles.valueText]}>{value}</Text> }
                     </View>
 
                 </View>

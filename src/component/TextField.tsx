@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   },
   labelContainer: {
     position: 'absolute',
-    paddingHorizontal: 8,
+    paddingHorizontal: 5,
     backgroundColor: '#FFF'
   },
   label: {

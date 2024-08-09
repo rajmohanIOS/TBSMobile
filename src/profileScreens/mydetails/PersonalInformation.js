@@ -16,7 +16,7 @@ const PersonalInformation = () => {
 
                         <TouchableOpacity style={styles.submitView} >
                             <Image />
-                            <Text style={styles.submitText}>Add new passenger</Text>
+                            <Text style={styles.submitText}>Save Changes</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
